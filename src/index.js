@@ -21,15 +21,17 @@ const rest = new REST({ version: '10' }).setToken(TOKEN);
 client.login(TOKEN);
 client.on('ready', () => {console.log(`${client.user.tag} has logged in!`);});
 
+client.on('interactionCreate', (interaction) => {
+    if (interaction.isChatInputCommand()) {
+        interaction.reply({ content: 'https://tenor.com/view/senko-gif-19340174'});
+    }
+});
+
 async function main() {
     const commands = [
     {
-        name: 'tutorialhelp',
-        description: 'Help Tutorial Command', 
-    },
-    {
-        name: 'tutorialhelp2',
-        description: 'Help Tutorial Command', 
+        name: 'senko',
+        description: 'Will send Senko to listen to you', 
     },
 ];
 
@@ -44,7 +46,3 @@ async function main() {
         console.log(err);
     }
 }
-
-main();
-
-//test
